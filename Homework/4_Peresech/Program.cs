@@ -3,83 +3,142 @@
 отрезки не пересекаются
 отрезки пересекаются строго в одной точке
 один отрезок вложен в другой*/
-//перемеенные точек
+
+/*
+отрезки не пересекаются
 int a_one = -10;
-int b_one = -7;
+int b_one = 11;
 int c_one = 10;
-int d_one = 17;
+int d_one = 11;
 
 int a_two = 0;
-int b_two = 10;
-int c_two = 16;
-int d_two = -14;
+int b_two = 1;
+int c_two = 1;
+int d_two = 10;
 //вводим переменные счетчика и переменные координат самого длинного отрезка
+int x0 = 0;
+int x1 = 0;
 int check = 0;
-int x0;
-int x1;
-int y0;
-int y1;
-// находим координаты самого длинного отрезка по оси x
+// нашли минимальный интервал для поиска по оси x
 if (c_one - a_one > c_two - a_two)
-{
-    x0 = a_one;
-    x1 = c_one;
-}
-else
 {
     x0 = a_two;
     x1 = c_two;
 }
-// проверяем принадлежность точек более короткого отрезка к более длинному по оси x
-int x = x0;
-while (x >= x0 && x <= x1)
+if (c_one - a_one < c_two - a_two)
 {
-    if (x >= a_two && x <= c_two)
+    x0 = a_one;
+    x1 = c_one;
+}
+while (x0 <= x1)
+{
+    double y_one = ((x0 - a_one)*(d_one - b_one)/(c_one - a_one)) + b_one;
+    double y_two = ((x0 - a_two)*(d_two - b_two)/(c_two - a_two)) + b_two;
+    if (y_one == y_two)
     {
-        check ++;
-        break;
+        check++;
     }
-    if (x >= a_one && x <= c_one)
-    {
-        check ++;
-        break;
-    }
-    x++;
+    x0++;
 }
-// находим координаты самого длинного отрезка по оси y
-if (d_one - b_one > d_two - a_two)
+if (check == 0)
 {
-    y0 = b_one;
-    y1 = d_one;
+    Console.WriteLine("Не пересекаются");
 }
-else
+else 
 {
-    y0 = b_two;
-    y1 = d_two;
+    Console.WriteLine("Пересекаются");
 }
-// проверяем принадлежность точек более короткого отрезка к более длинному по оси y
-int y = y0;
-while (y >= y0 && y <= y1)
-{
-    if (y >= b_two && y <= d_two)
-    {
-        check ++;
-        break;
-    }
-    if (y >= b_one && y <= d_one)
-    {
-        check ++;
-        break;
-    }
-    y++;
-}
-// проверка условия на пересечение
-if (check == 2)
-{
-Console.WriteLine("Отрезки пересекаются");
-}
-else
-{
-Console.WriteLine("Отрезки не пересекаются");
-}
+*/
+/*
+отрезки пересекаются строго в одной точке
+int a_one = -10;
+int b_one = 1;
+int c_one = 10;
+int d_one = 1;
 
+int a_two = 0;
+int b_two = 1;
+int c_two = 1;
+int d_two = 10;
+//вводим переменные счетчика и переменные координат самого длинного отрезка
+int x0 = 0;
+int x1 = 0;
+int check = 0;
+// нашли минимальный интервал для поиска по оси x
+if (c_one - a_one > c_two - a_two)
+{
+    x0 = a_two;
+    x1 = c_two;
+}
+if (c_one - a_one < c_two - a_two)
+{
+    x0 = a_one;
+    x1 = c_one;
+}
+while (x0 <= x1)
+{
+    double y_one = ((x0 - a_one)*(d_one - b_one)/(c_one - a_one)) + b_one;
+    double y_two = ((x0 - a_two)*(d_two - b_two)/(c_two - a_two)) + b_two;
+    if (y_one == y_two)
+    {
+        check++;
+    }
+    x0++;
+}
+if (check == 1)
+{
+    Console.WriteLine("Пересекаются строго в одной точке");
+}
+else 
+{
+    Console.WriteLine("Пересекаются в нескольких точках либо не пересекаются");
+}
+*/
+
+
+/*один отрезок вложен в другой
+int a_one = -10;
+int b_one = 1;
+int c_one = 10;
+int d_one = 1;
+
+int a_two = -10;
+int b_two = 1;
+int c_two = 5;
+int d_two = 1;
+//вводим переменные счетчика и переменные координат самого длинного отрезка
+int x0 = 0;
+int x1 = 0;
+int check = 0;
+// нашли минимальный интервал для поиска по оси x
+if (c_one - a_one > c_two - a_two)
+{
+    x0 = a_two;
+    x1 = c_two;
+}
+if (c_one - a_one < c_two - a_two)
+{
+    x0 = a_one;
+    x1 = c_one;
+}
+int check_point = 0;
+while (x0 <= x1)
+{
+    double y_one = ((x0 - a_one)*(d_one - b_one)/(c_one - a_one)) + b_one;
+    double y_two = ((x0 - a_two)*(d_two - b_two)/(c_two - a_two)) + b_two;
+    if (y_one == y_two)
+    {
+        check++;
+    }
+    x0++;
+    check_point++;
+}
+if (check == check_point)
+{
+    Console.WriteLine("Один отрезок вложен в другой");
+}
+else 
+{
+    Console.WriteLine("Пересекаются в нескольких точках либо не пересекаются");
+}
+*/
