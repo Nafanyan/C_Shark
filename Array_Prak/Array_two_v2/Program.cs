@@ -1,133 +1,142 @@
-﻿/*
+﻿/*Имеется числовой массив A заполненный числами из отрезка [minValue; maxValue]. С
+оздать на его основе масив B, отбрасывая те, которые нарушают порядок
 
-Нарушают порядок возрастания
+возрастания
+элементы, больше 8
+знакочередования*/
 
-int[] array_A = new int [10];
-int[] array_Test = new int [10];
-int index = 0;
-int min_Value = -100;
-int max_Value = 101;
-Console.Write("Исходный массив: ");
-while(index < array_A.Length)
+
+// Метод, наполняющий массив рандомными значениями
+int[] Array_Random(int[] array, int min, int max)
 {
-    array_A[index] = new Random().Next(min_Value, max_Value);
-    Console.Write($"{array_A[index]} ");
-    index++;
+    int len = array.Length;
+    for (int i = 0; i < len; i++)
+    {
+        array[i] = new Random().Next(min, max + 1);
+    }
+    return array;
 }
-int current = array_A[0];
-int i = 0;
-index = 0;
-while(index < array_A.Length)
+// Метод, выполняющий печать массива
+void Array_Print(int[] array)
 {
+    int len = array.Length;
+    for (int i = 0; i < len; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+}
+
+// Возрастания
+/*
+int[] array_A = new int [10];// Инициализируем массив А
+int[] array_Test = new int [10];// Инициализируем тестовый, переходный массив
+int min_Value = -100;// Задаем минимальное значение диапазона 
+int max_Value = 100;// Задаем маскимально значение диапазона
+Console.Write("Исходный массив: ");
+array_A = Array_Random(array_A, min_Value, max_Value);// Заполняем массив А рандомными числами через метод Array_Random
+Array_Print(array_A);// Печатаем массив А через метод Array_print
+
+// Реализуем поставленное условие
+int current = 0;// Инициализируем переменную, с помощью которой будем обозначать текущее значение элемента массива
+int counter = 0;// Инициализируем счетчик для нахождения количества чисел, соответствующих условию
+for (int index = 0; index < array_A.Length; index++)
+{
+    // Специальное условие для первого элемента массива, с него должно проверяться условие
     if(index == 0)
     {
-        array_Test[i] = array_A[index];
+        array_Test[counter] = array_A[index];
         current = array_A[index];
-        i++;   
+        counter++;   
     }
     if (current < array_A[index])
     {
-        array_Test[i] = array_A[index];
+        array_Test[counter] = array_A[index];
         current = array_A[index];
-        i++;  
+        counter++;  
     }
-    index++;
 }
 Console.WriteLine();
-int[] array_B = new int [i];
-index = 0;
+
+// Заполняем итоговый массив
+int[] array_B = new int [counter];// Инициализирование массива В, размерностью равной количеству чисел, проверенных условием
 Console.Write("Массив В: ");
-while (index < i)
+// Заполнение массива В с помощью тестового массива, избавление от нулей
+for (int index = 0; index < counter; index ++)
 {
     array_B[index] = array_Test[index];
-     Console.Write($"{array_B[index]} ");
-     index++;
 }
+Array_Print(array_B);// Печать массива В с помощью метода Array_print
 */
+
+
+// Элементы, больше 8
 /*
-
-Больше определенного числа
-
-int[] array_A = new int [10];
-int[] array_Test = new int [10];
-int number = -50; // указанное число
-int index = 0;
-int min_Value = -100;
-int max_Value = 101;
+int[] array_A = new int [10];// Инициализируем массив А
+int[] array_Test = new int [10];// Инициализируем тестовый, переходный массив
+int min_Value = -100;// Задаем минимальное значение диапазона 
+int max_Value = 100;// Задаем маскимально значение диапазона
 Console.Write("Исходный массив: ");
-while(index < array_A.Length)
+array_A = Array_Random(array_A, min_Value, max_Value);// Заполняем массив А рандомными числами через метод Array_Random
+Array_Print(array_A);// Печатаем массив А через метод Array_print
+
+// Реализуем поставленное условие
+int counter = 0;// Инициализируем счетчик для нахождения количества чисел, соответствующих условию
+for (int index = 0; index < array_A.Length; index++)
 {
-    array_A[index] = new Random().Next(min_Value, max_Value);
-    Console.Write($"{array_A[index]} ");
-    index++;
-}
-int i = 0;
-index = 0;
-while(index < array_A.Length)
-{
-    if (array_A[index] < number )
+    if (array_A[index] < 8 )
     {
-        array_Test[i] = array_A[index];
-        i++;  
+        array_Test[counter] = array_A[index];
+        counter++;  
     }
-    index++;
 }
 Console.WriteLine();
-int[] array_B = new int [i];
-index = 0;
+
+// Заполняем итоговый массив
+int[] array_B = new int [counter];// Инициализирование массива В, размерностью равной количеству чисел, проверенных условием
 Console.Write("Массив В: ");
-while (index < i)
+// Заполнение массива В с помощью тестового массива, избавление от нулей
+for (int index = 0; index < counter; index ++)
 {
     array_B[index] = array_Test[index];
-     Console.Write($"{array_B[index]} ");
-     index++;
 }
-
+Array_Print(array_B);// Печать массива В с помощью метода Array_print
 */
+// Знакочередования
 /*
-
-Знакочередование
-
-int[] array_A = new int [10];
-int[] array_Test = new int [10];
-int index = 0;
-int min_Value = -100;
-int max_Value = 101;
+int[] array_A = new int [10];// Инициализируем массив А
+int[] array_Test = new int [10];// Инициализируем тестовый, переходный массив
+int min_Value = -100;// Задаем минимальное значение диапазона 
+int max_Value = 100;// Задаем маскимально значение диапазона
 Console.Write("Исходный массив: ");
-while(index < array_A.Length)
-{
-    array_A[index] = new Random().Next(min_Value, max_Value);
-    Console.Write($"{array_A[index]} ");
-    index++;
-}
-Console.WriteLine();
-int i = 0;
-index = 0;
-int current = array_A[0];
-while(index < array_A.Length)
-{
+array_A = Array_Random(array_A, min_Value, max_Value);// Заполняем массив А рандомными числами через метод Array_Random
+Array_Print(array_A);// Печатаем массив А через метод Array_print
 
-    if ( index == 0)
+// Реализуем поставленное условие
+int counter = 0;// Инициализируем счетчик для нахождения количества чисел, соответствующих условию
+for(int index = 0; index < array_A.Length; index++)
+{
+   // Специальное условие для первого элемента массива, с него должно проверяться условие
+    if (index == 0)
     {
-        array_Test[i] = array_A[index];
-        i++;
+        array_Test[counter] = array_A[index];
+        counter++;
         index++;
     }
     if ((array_A[index - 1] >= 0 && array_A[index] < 0)||(array_A[index - 1] < 0 && array_A[index] > 0))
     {
-        array_Test[i] = array_A[index];
-        i++;
+        array_Test[counter] = array_A[index];
+        counter++;
     }
-
-    index++;
 }
-int[] array_B = new int [i];
-index = 0;
+Console.WriteLine();
+
+// Заполняем итоговый массив
+int[] array_B = new int [counter];// Инициализирование массива В, размерностью равной количеству чисел, проверенных условием
 Console.Write("Массив В: ");
-while (index < i)
+// Заполнение массива В с помощью тестового массива, избавление от нулей
+for (int index = 0; index < counter; index ++)
 {
     array_B[index] = array_Test[index];
-     Console.Write($"{array_B[index]} ");
-     index++;
 }
+Array_Print(array_B);// Печать массива В с помощью метода Array_print
 */
