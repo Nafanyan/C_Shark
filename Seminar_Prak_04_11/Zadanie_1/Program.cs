@@ -110,6 +110,7 @@ seven_day(one_day);
 seven_day(three_day);
 seven_day(two_day);
 */
+/*
  //4. Найти максимальное из трех чисел
  void srav (int one, int two, int three)
  {
@@ -133,18 +134,43 @@ srav(one, two, three);
 
 */
 /*
+//5. Написать программу вычисления значения функции y=f(a)
 double a = 0;
 double y = Math.Cos(a);
 Console.WriteLine(y);
 */
-
+/*
+ //6. Выяснить является ли число чётным
+string chet (int number)
+{
+    string text;
+    if (number % 2 == 0)
+    {
+        text = $"{number} четное число";
+    }
+    else
+    {
+        text = $"{number} не четное число";
+    }
+    return text;
+}
+int one = 12;
+int two = 10;
+int three = 9;
+Console.WriteLine(chet(one));
+Console.WriteLine(chet(two));
+Console.WriteLine(chet(three));
+*/
 //7. Показать числа от -N до N
 /*
-int start = -10;
-int end = 10;
-for (int i = start; i <= end; i++)
+void Print_number(int start, int end)
 {
-    Console.Write($"{i} ");
+    for (int i = start; i <= end; i++)
+    {
+      Console.Write($"{i} ");
+    }
 }
-
+int start_N = - 100;
+int end_N = 100;
+Print_number(start_N, end_N);
 */
