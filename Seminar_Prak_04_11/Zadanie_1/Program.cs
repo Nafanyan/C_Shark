@@ -117,6 +117,79 @@
 // int end_N = 100;
 // Print_number(start_N, end_N);
 
+// 8. Показать четные числа от 1 до N
+
+// void Print_chet_Arr(int Num)
+// {
+//     for (int i = 0; i <= Num; i++)
+//     {
+//         if (i%2 == 0)
+//         Console.Write($"{i} ");
+//     }
+// }
+
+// int N = Convert.ToInt32(Console.ReadLine());
+// Print_chet_Arr(N);
+
+//  9. Показать последнюю цифру трёхзначного числа
+
+// int last_num (int num)
+// {
+//     return num % 10;
+// }
+
+// int Number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(last_num(Number));
+
+//10. Показать вторую цифру трёхзначного числа
+// int two_num (int num)
+// {
+//     return (num % 100 - num % 10) / 10;
+// }
+
+// int Number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(two_num(Number));
+
+//11. Дано число из отрезка [10, 99]. Показать наибольшую цифру числа
+// int srav (int num)
+// {
+//     if (num % 10 > (num - num % 10)/10)
+//     {
+//         return num % 10;
+//     }
+//     else
+//     {
+//         return (num - num % 10)/10;
+//     }
+// }
+
+// int Number = new Random().Next(10,100);
+// Console.WriteLine(Number);
+// Console.WriteLine(srav(Number));
+
+//12. Удалить вторую цифру трёхзначного числа
+// char[] two_num (int num)
+// {
+//     string number_string = Convert.ToString(num);
+//     char[] array_char = number_string.ToCharArray();
+//     return array_char;
+// }
+// void print_char (char[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if ( i != 1)
+//         {
+//             Console.Write($"{array[i]}");
+//         }   
+//     }
+// }
+
+// int Number = Convert.ToInt32(Console.ReadLine());
+// print_char(two_num(Number));
+
+//13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
+
 //Показать число, кратное 7 и 23
 // bool check (int num)
 // {
