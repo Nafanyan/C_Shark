@@ -190,7 +190,45 @@
 
 //13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
 
-//Показать число, кратное 7 и 23
+// int check (int number, int krat)
+// {
+//     if (number % krat == 0)
+//     {
+//         return 0;
+//     }
+//     else
+//     {
+//        return number % krat; 
+//     }
+// }
+// int num_one = Convert.ToInt32(Console.ReadLine());
+// int num_two = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(check(num_one,num_two));
+
+//14. Найти третью цифру числа или сообщить, что её нет
+
+// char three_num (int number)
+// {
+//     string number_string = Convert.ToString(number);
+//     char[] array_char = number_string.ToCharArray();
+//     if (number > 99 || number < -99)
+//     {
+//         return array_char[2];
+//     }
+//     else
+//     {
+//         return 'n';
+//     }
+// }
+// int num = Convert.ToInt32(Console.ReadLine());
+// if(three_num(num) == 'n') 
+// {Console.WriteLine("Число отсутствует");}
+// else
+// {
+//     Console.WriteLine(three_num(num));
+// }
+
+//15.Показать число, кратное 7 и 23
 // bool check (int num)
 // {
 //     return num % 7 == 0 && num % 23 == 0; 
@@ -198,7 +236,7 @@
 // int number = 76;
 // Console.WriteLine(check(number));
 
-// По вводимому числу будний день или выходной
+// 16.По вводимому числу будний день или выходной
 
 // string Weekend(int day)
 // {
@@ -218,7 +256,7 @@
 
 //Convert.ToInt32(Console.ReadLine());
 
-// Проверить какое число является квадратом другого
+// 17.Проверить какое число является квадратом другого
 // string check (int one, int two)
 // {
 //     string result = "";
@@ -237,7 +275,7 @@
 // Console.WriteLine(check(number_one,number_two));
 
 
-//Проверить условие
+//18. Проверить условие
 // bool check (bool one_bool, bool two_bool)
 // {
 //     return !(one_bool || two_bool) == !one_bool && !two_bool;
@@ -246,7 +284,7 @@
 // bool two = false;
 // Console.WriteLine(check(one,two));
 
-// Вывести четверть точки
+// 19.Вывести четверть точки
 
 // int Chetvert (int x, int y)
 // {
@@ -273,7 +311,7 @@
 // int ver = -5;
 // Console.WriteLine(Chetvert(hor,ver));
 
-//Вводят четверть, вывести интервал допустимых значений
+//20.Вводят четверть, вывести интервал допустимых значений
 // string interval (int number)
 // {
 //     string result ="";
@@ -303,7 +341,7 @@
 
 
 
-//Проверка на полиндром
+//21. Проверка на полиндром
 // int number = 987678;
 // string number_string = Convert.ToString(number);
 // char[] array = number_string.ToCharArray();
