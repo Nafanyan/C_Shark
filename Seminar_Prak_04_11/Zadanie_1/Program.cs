@@ -280,9 +280,27 @@
 // {
 //     return !(one_bool || two_bool) == !one_bool && !two_bool;
 // }
-// bool one = true;
-// bool two = false;
-// Console.WriteLine(check(one,two));
+// bool int_to_bool (int num)
+// {
+//     if (num == 0)
+//     {
+//         return false;
+//     }
+//     else
+//     {
+//         return true;
+//     }
+// }
+
+// bool result = true;
+// for (int i = 0; i <= 1; i++)
+// {
+//     for (int j = 0; j <= 1; j++)
+//     {
+//         result = result && (check(int_to_bool(i),int_to_bool(j)));
+//     }
+// }
+// Console.WriteLine(result);
 
 // 19.Вывести четверть точки
 
@@ -363,3 +381,83 @@
 // {
 //     Console.WriteLine("Полиндром");
 // }
+
+// 22. Найти расстояние между точками в пространстве 2D/3D
+
+// double distance_2D (int x_1, int y_1, int x_2, int y_2)
+// {
+//     return Math.Sqrt((x_1-x_2)*(x_1-x_2)+(y_1-y_2)*(y_1-y_2)); 
+// }
+// int x1 = Convert.ToInt32(Console.ReadLine());
+// int y1 = Convert.ToInt32(Console.ReadLine());
+// int x2 = Convert.ToInt32(Console.ReadLine());
+// int y2 = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine(distance_2D(x1,y1,x2,y2));
+
+// double distance_3D (int x_1, int y_1, int z_1, int x_2, int y_2, int z_2)
+// {
+//     return Math.Sqrt((x_1-x_2)*(x_1-x_2)+(y_1-y_2)*(y_1-y_2)+(z_1-z_2)*(z_1-z_2)); 
+// }
+// int x1 = Convert.ToInt32(Console.ReadLine());
+// int y1 = Convert.ToInt32(Console.ReadLine());
+// int z1 = Convert.ToInt32(Console.ReadLine());
+// int x2 = Convert.ToInt32(Console.ReadLine());
+// int y2 = Convert.ToInt32(Console.ReadLine());
+// int z2 = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine(distance_2D(x1,y1,z1,x2,y2,z2));
+
+//23. Показать таблицу квадратов чисел от 1 до N 
+
+// void print_square (int Nom)
+// {
+//     for (int i = 2; i <= Nom; i++)
+//     {
+//         Console.WriteLine($"{i} - {i*i}");
+//     }
+// }
+
+// int N = Convert.ToInt32(Console.ReadLine());
+// print_square(N);
+
+//24. Найти кубы чисел от 1 до N
+// void print_square (int Nom)
+// {
+//     for (int i = 1; i <= Nom; i++)
+//     {
+//         Console.WriteLine($"{i} - {i*i*i}");
+//     }
+// }
+
+// int N = Convert.ToInt32(Console.ReadLine());
+// print_square(N);
+
+// 25. Найти сумму чисел от 1 до А
+
+// int sum (int num)
+// {
+//     int sum = 0;
+//     for (int i = 1; i <= num; i++)
+//     {
+//         sum += i;
+//     }
+//     return sum;
+// }
+
+// int A = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(sum(A));
+
+//26. Возведите число А в натуральную степень B используя цикл
+// int stepen (int number_a, int stepen_b)
+// {
+//     int result = 1;
+//     for (int i = 0; i < stepen_b; i++)
+//     {
+//         result = result * number_a;
+//     }
+//     return result;
+// }
+// int A = Convert.ToInt32(Console.ReadLine());
+// int B = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(stepen(A,B));
