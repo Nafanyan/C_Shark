@@ -461,3 +461,459 @@
 // int A = Convert.ToInt32(Console.ReadLine());
 // int B = Convert.ToInt32(Console.ReadLine());
 // Console.WriteLine(stepen(A,B));
+
+//27. Определить количество цифр в числе
+// char[] int_to_arrchar (int number)
+// {
+// string number_string = Convert.ToString(number);
+// char[] array = number_string.ToCharArray();
+// return array;
+// }
+// int size (char[] new_array)
+// {
+//     return new_array.Length;
+// }
+
+// int value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(size(int_to_arrchar(value)));
+
+//28. Подсчитать сумму цифр в числе
+// char[] int_to_arrchar (int number)
+// {
+// string number_string = Convert.ToString(number);
+// char[] array = number_string.ToCharArray();
+// return array;
+// }
+// int sum(char[] arr)
+// {
+//     int sumn = 0;
+//     for(int i = 0; i < arr.Length; i++)
+//     {
+//         sumn = sumn + (Convert.ToInt32(arr[i]) - Convert.ToInt32('0'));
+//     }
+//     return sumn;
+// }
+
+// int value = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(sum(int_to_arrchar(value)));
+
+//29. Написать программу вычисления произведения чисел от 1 до N
+
+// int chast(int N)
+// {
+//     int result = 1;
+//     for(int i = 1; i <= N; i++)
+//     {
+//         result = result * i; 
+//     }
+//     return result;
+// }
+// int number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(chast(number));
+
+//30. Показать кубы чисел, заканчивающихся на четную цифру
+
+// void print_kub(int num)
+// {
+//     num = num * num * num;
+//     if (num % 2 == 0)
+//     {
+//         Console.WriteLine(num);
+//     }
+// }
+
+// int number = Convert.ToInt32(Console.ReadLine());
+// print_kub(number);
+
+//31. Задать массив из 8 элементов и вывести их на экран 
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+// }
+// int[] arr = {1,2,3,4,5,6,7,8,9,0,11};
+// print(arr);
+
+//32. Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран 
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(0, 2);
+//     }
+//     return array;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+// }
+// int[] new_array = new int[8];
+// new_array = add_in_create(new_array);
+// print (new_array);
+
+//33. Задать массив из 12 элементов, заполненных числами из [-9,9]. Найти сумму положительных/отрицательных элементов массива
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-9, 10);
+//     }
+//     return array;
+// }
+// int sum (int[] array)
+// {
+//     int sum = 0;
+//    for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] > 0)
+//         {
+//             sum += array[i];
+//         }
+//     }
+//     return sum; 
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[12];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(sum(new_array));
+
+//
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-9, 10);
+//     }
+//     return array;
+// }
+// int sum (int[] array)
+// {
+//     int sum = 0;
+//    for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] < 0)
+//         {
+//             sum += array[i];
+//         }
+//     }
+//     return sum; 
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[12];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(sum(new_array));
+
+//34. Написать программу замену элементов массива на противоположные
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-100, 101);
+//     }
+//     return array;
+// }
+// int[] swap (int[] array)
+// {
+//     int sum = 0;
+//    for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = array[i] - array[i] * 2;
+//     }
+//     return array; 
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[15];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// new_array = swap(new_array);
+// print(new_array);
+
+//35. Определить, присутствует ли в заданном массиве, некоторое число 
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-100, 101);
+//     }
+//     return array;
+// }
+// bool find (int[] array, int number)
+// {
+//     bool bool_array = false;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (number == array[i])
+//         {
+//             bool_array = true;
+//             break;
+//         }
+//     }
+//     return bool_array;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[15];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// int num = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(find(new_array, num));
+
+//36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
+
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(100, 1000);
+//     }
+//     return array;
+// }
+// int find (int[] array)
+// {
+//     int quantity = 0;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] % 2 == 0)
+//         {
+//             quantity++;
+//         }
+//     }
+//     return quantity;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[15];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(find(new_array));
+
+//
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(100, 1000);
+//     }
+//     return array;
+// }
+// int find (int[] array)
+// {
+//     int quantity = 0;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] % 2 == 1)
+//         {
+//             quantity++;
+//         }
+//     }
+//     return quantity;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[15];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(find(new_array));
+
+//37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-100, 100);
+//     }
+//     return array;
+// }
+// int find (int[] array)
+// {
+//     int quantity = 0;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] > 9 && array[i] < 100)
+//         {
+//             quantity++;
+//         }
+//     }
+//     return quantity;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[123];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(find(new_array));
+
+//38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(-100, 100);
+//     }
+//     return array;
+// }
+// int find (int[] array)
+// {
+//     int sum = 0;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         if (i % 2 == 1)
+//         {
+//             sum += array[i];
+//         }
+//     }
+//     return sum;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[15];
+// new_array = add_in_create(new_array);
+// print(new_array);
+// Console.WriteLine(find(new_array));
+
+//39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(0, 10);
+//     }
+//     return array;
+// }
+// int[] find (int[] array)
+// {
+//     int[] swap_array = new int[array.Length/2];
+//     for ( int i = 0; i < swap_array.Length; i++)
+//     {
+//        swap_array[i] = array[i] * array[array.Length - i - 1];
+//     }
+//     return swap_array;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[7];
+// print(add_in_create(new_array));
+// print(find(new_array));
+
+//40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
+
+// int[] add_in_create(int[] array)
+// {
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(0, 10);
+//     }
+//     return array;
+// }
+// int dif (int[] array)
+// {
+//     int max = 0;
+//     int min = 0;
+//     for ( int i = 0; i < array.Length; i++)
+//     {
+//        if (array[i] > max)
+//        {
+//            max = array[i];
+//        }
+//        if (array[i] < min)
+//        {
+//            min = array[i];
+//        }
+//     }
+//     return max-min;
+// }
+// void print (int[] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+// int[] new_array = new int[7];
+// print(add_in_create(new_array));
+// Console.WriteLine(dif(add_in_create(new_array)));
