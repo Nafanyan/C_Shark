@@ -918,6 +918,16 @@
 // print(add_in_create(new_array));
 // Console.WriteLine(dif(add_in_create(new_array)));
 
+//41. Выяснить являются ли три числа сторонами треугольника 
+// bool condition (int a, int b, int c)
+// {
+//     return c <= a + b && b <= a + c && a <= b + c;
+// }
+// int one = Convert.ToInt32(Console.ReadLine());
+// int two = Convert.ToInt32(Console.ReadLine());
+// int three = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(condition(one, two, three));
+
 //42. Определить сколько чисел больше 0 введено с клавиатуры
 
 // char[] int_to_char_arr (int num)
@@ -944,38 +954,93 @@
 
 //43. Написать программу преобразования десятичного числа в двоичное
 
-int[] ten_to_two(int number)
-{
-    int bit = 1;
-    while (number / Math.Pow(2,bit) > 1)
-    {
-        bit++;
-    }
-    int[] arr_two = new int[bit+1];
-    for(int i = 0; i <= bit; i++)
-    {
-        if(i == bit && number < 2){break;}
-        arr_two[i] = number % 2;
-        number = number / 2;
-    }
-    return arr_two;
-}
-void print (int[] arr)
-{
-    for (int i = 0; i < arr.Length; i++)
-    {
-        Console.Write($"{arr[i]}");
-    }
-}
-int[] sort (int [] arr_sort)
-{
-    int temp = 0;
-    for (int i = 0; i < arr_sort.Length/2; i++)
-    {
-        temp = arr_sort[i];
-        arr_sort[i] = arr_sort[arr_sort.Length-i-1];
-        arr_sort[arr_sort.Length-i-1] = temp;
-    }
-    return arr_sort;
-}
-print(sort(ten_to_two(9)));
+// int[] ten_to_two(int number)
+// {
+//     int bit = 1;
+//     while (number / Math.Pow(2,bit) > 1)
+//     {
+//         bit++;
+//     }
+//     int[] arr_two = new int[bit+1];
+//     for(int i = 0; i <= bit; i++)
+//     {
+//         if(i == bit && number < 2){break;}
+//         arr_two[i] = number % 2;
+//         number = number / 2;
+//     }
+//     return arr_two;
+// }
+// void print (int[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]}");
+//     }
+// }
+// int[] sort (int [] arr_sort)
+// {
+//     int temp = 0;
+//     for (int i = 0; i < arr_sort.Length/2; i++)
+//     {
+//         temp = arr_sort[i];
+//         arr_sort[i] = arr_sort[arr_sort.Length-i-1];
+//         arr_sort[arr_sort.Length-i-1] = temp;
+//     }
+//     return arr_sort;
+// }
+// print(sort(ten_to_two(7252)));
+
+// 44. Найти точку пересечения двух прямых заданных уравнением y=kx+b, b1 k1 и b2 и k2 заданы
+
+// double plosk (double b_one, double b_two, double k_one, double k_two)
+// {
+//     double  x = 0;
+//     for (double i = -10000; i < 10000; i ++)
+//     {
+//         if (b_one + k_one*i == b_two + k_two*i)
+//         {
+//            x = i;        
+//            break;
+//         } 
+//     }
+//     return x;
+// }
+// double b1 = Convert.ToInt64(Console.ReadLine());
+// double k1 = Convert.ToInt64(Console.ReadLine());
+// double b2 = Convert.ToInt64(Console.ReadLine());
+// double k2 = Convert.ToInt64(Console.ReadLine());
+// Console.WriteLine ($"{plosk(b1, b2, k1, k2)} {k1 * plosk(b1, b2, k1, k2) + b1}");
+
+
+//45. Показать числа Фибоначчи
+
+// int[] Fib (int N)
+// {
+//     int [] arr_fib = new int[N];
+//     for (int i = 0; i < N; i++)
+//     {
+//         if (i == 0) 
+//         {
+//             arr_fib[i] = 0;
+//             i++;
+//             arr_fib[i] = 1;
+//         }
+//         else
+//         {
+//             arr_fib[i] = arr_fib[i-1] + arr_fib[i-2];
+//         }
+//     }
+//     return arr_fib;
+// }
+
+// void print(int[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]} ");
+//     }
+// }
+
+// int N = Convert.ToInt32(Console.ReadLine());
+// print(Fib(N));
+
