@@ -917,3 +917,65 @@
 // int[] new_array = new int[7];
 // print(add_in_create(new_array));
 // Console.WriteLine(dif(add_in_create(new_array)));
+
+//42. Определить сколько чисел больше 0 введено с клавиатуры
+
+// char[] int_to_char_arr (int num)
+// {
+//     string num_string = Convert.ToString(num);
+//     char[] num_char = num_string.ToCharArray();
+//     return num_char;
+// }
+// int quantity (char[] char_arr)
+// {
+//     int integer = 0;
+//     for (int i = 0; i < char_arr.Length; i++)
+//     {
+//         if (char_arr[i] == '0')
+//         {
+//             integer++;
+//         }
+//     }
+//     return integer;
+// }
+
+// int number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(quantity(int_to_char_arr(number)));
+
+//43. Написать программу преобразования десятичного числа в двоичное
+
+int[] ten_to_two(int number)
+{
+    int bit = 1;
+    while (number / Math.Pow(2,bit) > 1)
+    {
+        bit++;
+    }
+    int[] arr_two = new int[bit+1];
+    for(int i = 0; i <= bit; i++)
+    {
+        if(i == bit && number < 2){break;}
+        arr_two[i] = number % 2;
+        number = number / 2;
+    }
+    return arr_two;
+}
+void print (int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write($"{arr[i]}");
+    }
+}
+int[] sort (int [] arr_sort)
+{
+    int temp = 0;
+    for (int i = 0; i < arr_sort.Length/2; i++)
+    {
+        temp = arr_sort[i];
+        arr_sort[i] = arr_sort[arr_sort.Length-i-1];
+        arr_sort[arr_sort.Length-i-1] = temp;
+    }
+    return arr_sort;
+}
+print(sort(ten_to_two(9)));
