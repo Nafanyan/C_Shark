@@ -1014,33 +1014,16 @@
 
 //45. Показать числа Фибоначчи
 
-// int[] Fib (int N)
+// int Fib (int N)
 // {
-//     int [] arr_fib = new int[N];
-//     for (int i = 0; i < N; i++)
-//     {
-//         if (i == 0) 
-//         {
-//             arr_fib[i] = 0;
-//             i++;
-//             arr_fib[i] = 1;
-//         }
-//         else
-//         {
-//             arr_fib[i] = arr_fib[i-1] + arr_fib[i-2];
-//         }
-//     }
-//     return arr_fib;
+//     if (N == 1 || N == 0) return 1;
+//     else return Fib(N-1) + Fib(N-2);
+// }
+// int n = 10;
+// for(int i = 0; i < n; i++)
+// {
+//     Console.Write($"{Fib(i)} ");
 // }
 
-// void print(int[] arr)
-// {
-//     for (int i = 0; i < arr.Length; i++)
-//     {
-//         Console.Write($"{arr[i]} ");
-//     }
-// }
 
-// int N = Convert.ToInt32(Console.ReadLine());
-// print(Fib(N));
 
