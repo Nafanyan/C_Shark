@@ -1275,4 +1275,57 @@
 // Console.WriteLine();
 // print(swap(new_array));
 
+//53 .В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет
+
+// string search (int[,] array, int num)
+// {
+//     string numbers = string.Empty;
+//     bool flag = false;
+//     for ( int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for( int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (array[i,j] == num)
+//             {
+//                 numbers = $"{i} {j}";
+//                 flag = true;
+//                 break;
+//             }
+//             else numbers = "Такого числа нет";
+//         }
+//         if(flag) break;
+//     }
+//     return numbers;
+// }
+
+// int[,] Random (int[,] arr)
+// {
+//     for(int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             arr[i,j] = new Random().Next(0, 101);
+//         }
+//     }
+//     return arr;
+// }
+
+// void print (int[,] arr_print)
+// {
+//     for(int i = 0; i < arr_print.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < arr_print.GetLength(1); j++)
+//         {
+//             Console.Write($"{arr_print[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int [,] new_arr = new int[4, 3];
+// new_arr = Random(new_arr);
+// print(new_arr);
+// Console.WriteLine();
+// int num = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine(search(new_arr, num));
 
