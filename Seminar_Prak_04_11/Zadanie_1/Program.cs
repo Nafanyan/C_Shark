@@ -1025,5 +1025,254 @@
 //     Console.Write($"{Fib(i)} ");
 // }
 
+//46. Написать программу масштабирования фигуры
+
+// char[] scale (float ratio, string coordinates)
+// {
+//     int counter = 0;
+//     char[] coor = coordinates.ToCharArray();
+//     for (int i = 0; i < coor.Length; i++)
+//     {
+//         if (coor[i] == '(' || coor[i] == ')' || coor[i] == ',' || coor[i] == ' ')
+//         {
+//             counter++;
+//         }
+//         else
+//         {
+//             while ((coor[i] != '(' || coor[i] != ')' || coor[i] != ',' || coor[i] != ' ') )
+//         {
+//             coor[i] = Convert.ToInt32(coor[i]) * ratio;
+//             i++;
+//         }
+            
+//         }
+//     }
+//     char[] coor_new = new char[counter] 
+//     return coor_new;
+// }
+// void print (char[] array)
+// {
+//     for (int i = 0; i < array.Length; i ++)
+//     {
+//         Console.Write($"{array[i]}");
+//     }
+// }
+// string coordinat = Console.ReadLine();
+// // float rat = Convert.ToInt64(Console.ReadLine());
+// // char[] coor = coordinat.ToCharArray();
+// // Console.Write($"{(Convert.ToInt64(coor[1]) - 48) * rat}");
+// // Console.Write($"{coordinat[0]}");
+// // print(scale(rat, coordinat));
+// if (coordinat[0] != ',' )
+// {
+//     Console.WriteLine($"{coordinat[0] * 1}");
+// }
+
+
+// 47 Написать программу копирования массива
+
+// int[] copy_array (int[] array_cop, int[] array_new)
+// {
+//     for ( int i = 0; i < array_cop.Length; i++)
+//     {
+//         array_new[i] = array_cop[i];
+//     }
+//     return array_new;
+// }
+// int [] rand_array (int[] array)
+// {
+//      for ( int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(0,11);
+//     }
+//     return array;
+// }
+// void print (int[] arr)
+// {
+//     for ( int i = 0; i < arr.Length; i++)
+//     {
+//         Console.Write($"{arr[i]} ");
+//     }
+//     Console.WriteLine(); 
+// }
+// int[] one_array = new int[10];
+// int[] two_array = new int[one_array.Length];
+// print(rand_array(one_array));
+// two_array = copy_array(one_array,two_array);
+// print(two_array);
+
+// 48 Показать двумерный массив размером m×n заполненный целыми числами
+
+// int[,] rand(int[,] arr)
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             arr[i, j] = new Random().Next(0, 101);
+//         }
+//     }
+//     return arr;
+// }
+// void print(int[,] print_arr)
+// {
+//        for (int i = 0; i < print_arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < print_arr.GetLength(1); j++)
+//         {
+//             Console.Write($"{print_arr[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     } 
+// } 
+// int[,] array = new int[10, 4];
+// print(rand(array));
+
+//49 Показать двумерный массив размером m×n заполненный вещественными числами
+
+// double[,] rand(double[,] arr)
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             arr[i, j] = new Random().Next(0, 101);
+//             arr[i, j] = arr[i, j] / 10;
+//         }
+//     }
+//     return arr;
+// }
+// void print(double[,] print_arr)
+// {
+//        for (int i = 0; i < print_arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < print_arr.GetLength(1); j++)
+//         {
+//             Console.Write($"{print_arr[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     } 
+// } 
+// double[,] array = new double[10, 4];
+// print(rand(array));
+
+// 50. В двумерном массиве n×k заменить четные элементы на противоположные
+
+// int[,] chet (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if ( array[i,j] % 2 == 0)
+//             {
+//                 array[i,j] = array[i,j] * (-1);
+//             }
+//         }
+//     }
+//     return array;
+// }
+
+// int[,] Random (int[,] arr_ran)
+// {
+//     for (int i = 0; i < arr_ran.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr_ran.GetLength(1); j++)
+//         {
+//             arr_ran[i,j] = new Random().Next(0, 101);
+//         }
+//     }
+//     return arr_ran;
+// }
+
+// void print (int[,] arr_print)
+// {
+//     for ( int i = 0; i < arr_print.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr_print.GetLength(1); j++)
+//         {
+//             Console.Write($"{arr_print[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] array = new int[10,5];
+// print(chet(Random(array)));
+
+//51. Задать двумерный массив следующим правилом: Aₘₙ = m+n
+
+// int[,] m_n_arr (int[,] arr)
+// {
+//     for (int i = 0; i < arr.GetLength(0); i ++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             arr[i,j] = i + j;
+//         }
+//     }
+//     return arr;
+// }
+// void print (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] new_arr = new int[10,4];
+// print(m_n_arr(new_arr));
+
+
+// 52. В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты
+// int[,] rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,101);
+//         }
+//     }
+//     return array;
+// }
+// int[,] swap (int[,] arr)
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             if (i % 2 == 0 && j % 2 == 0)
+//             {
+//                 arr[i,j] = arr[i,j] * arr[i,j];
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// void print(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i,j]} ");
+//         }
+//          Console.WriteLine();
+//     }
+   
+// }
+
+// int[,] new_array = new int[3,6];
+// new_array = rand(new_array);
+// print(new_array);
+// Console.WriteLine();
+// print(swap(new_array));
 
 
