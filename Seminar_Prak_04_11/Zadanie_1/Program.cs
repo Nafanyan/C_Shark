@@ -1329,3 +1329,90 @@
 // int num = Convert.ToInt32(Console.ReadLine());
 // Console.WriteLine(search(new_arr, num));
 
+
+// int CreateNumber (int leftBound, int rightBound)
+// {
+//     int RandomNumber = new Random().Next(leftBound, rightBound);
+//     return RandomNumber;
+// }
+// int requestNumber()
+// {
+//     int PlayerNumber = 0;
+//     Console.WriteLine("Введите число: ");
+//     PlayerNumber = Convert.ToInt32(Console.ReadLine());
+//     return PlayerNumber;
+// }
+
+// bool makeMove(int SecretNumber, int PlayerNumber)
+// {
+//         if (PlayerNumber == SecretNumber)
+//         {
+//             return true;
+//         }
+//         else
+//         {
+//             return false;
+//         }
+// }
+
+// Console.WriteLine("Введите количество попыток:");
+// int count = Convert.ToInt32(Console.ReadLine());
+
+// int SecretNumber = CreateNumber(0, 101);
+// int PlayerNumber = 0;
+// Console.WriteLine(SecretNumber);
+
+// while (count > 0)
+// {
+//     PlayerNumber = requestNumber();
+//     if(makeMove(SecretNumber, PlayerNumber) && count > 0)
+//     {
+//         Console.WriteLine("Победа");
+//         break;
+//     }
+//     else
+//     {
+//         count -= 1;
+//         if ( count == 0)
+//         {
+//             Console.WriteLine("Ха ха кончились попытки!");
+//             break;
+//         }
+//         Console.WriteLine("Попробуйте ещё раз");
+        
+//         Console.WriteLine($"Попыток: {count}");
+//     }
+// }
+
+
+// int CreateNumber (int leftBound, int rightBound)
+// {
+//     int RandomNumber = new Random().Next(leftBound, rightBound);
+//     return RandomNumber;
+// }
+
+// int requestNumber()
+// {
+//     int PlayerNumber = 0;
+//     Console.WriteLine("Введите число: ");
+//     PlayerNumber = Convert.ToInt32(Console.ReadLine());
+//     return PlayerNumber;
+// }
+
+// int count = 3;
+// int SNumber = CreateNumber(1,100);
+// Console.WriteLine (SNumber);
+
+
+// bool makeMove(int SecretNumber, int CountOfAt)
+// {
+//     int Number = requestNumber();
+//     if (Number == SecretNumber) return true;
+//     else return false;
+// }
+
+// while ((makeMove(SNumber, count) == false && count > 0))
+// {
+//     Console.Write("Введено неверное число, повторите попытку");
+//     count--;
+// };
