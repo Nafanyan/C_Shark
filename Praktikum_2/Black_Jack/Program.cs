@@ -212,30 +212,26 @@ int sum_array (int[,] array, int player)
     int sum = 0;
         for(int i = 0; i < array.GetLength(1); i++)
         {
-            sum += array[player,i];
+            sum = sum + array[player, i];
         }
-        return sum;
+    return sum;
 }
 //Находим победителя по набранным очкам
 int index_max_array (int[,] arr)
 { 
     int index_max = 0;
     int max = 0;
-    for (int i = 1; i < arr.GetLength(0)+1; i++)
+    for (int i = 1; i < arr.GetLength(0); i++)
     {
+        
        if (max < sum_array(arr,i))
-        {
-            if( sum_array(arr,i) <= 21)
+        {   
+        if( sum_array(arr,i) <= 21)
             {
-            max = sum_array(arr,i);
-            index_max = i;
+                max = sum_array(arr,i);
+                index_max = i;
             } 
         }
-        if (max == sum_array(arr,i) )
-        {
-            index_max = 0;
-        }
-
     }
     return index_max;
 }
@@ -249,13 +245,14 @@ string play (int[,] cards_pl, int[] cards_stok)
         cards_stok[i] = 0;
     }
     cards_pl = hit_me(cards_pl, cards_stok);
-    if (index_max_array(cards_pl) == 0)
+    int index = index_max_array(cards_pl);
+    if (index == 0)
     {
         return "Никто не победил";
     }
     else
     {
-        return $"Победил игрок под номером: {index_max_array(cards_pl)}";
+        return $"Победил игрок под номером: {index}";
     }
 }
 //Вывод карт
