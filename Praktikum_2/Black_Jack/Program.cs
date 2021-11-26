@@ -223,10 +223,13 @@ int index_max_array (int[,] arr)
     int max = 0;
     for (int i = 1; i < arr.GetLength(0); i++)
     {
-        
-       if (max < sum_array(arr,i))
+        if ( max == sum_array(arr,i))
+        {
+            index_max = 0;
+        }
+        if (max < sum_array(arr,i))
         {   
-        if( sum_array(arr,i) <= 21)
+            if( sum_array(arr,i) <= 21)
             {
                 max = sum_array(arr,i);
                 index_max = i;
