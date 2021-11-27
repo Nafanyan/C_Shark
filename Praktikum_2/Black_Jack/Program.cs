@@ -1,213 +1,196 @@
-﻿// Решал через одномерные массивы, деревянно, не гибко
-
-// //Перемешиваем каллоду
-// int[] random_cards(int[] cards)
+﻿
+// int[] RandomCards(int[] cards)
 // {
 //     int temp = 0;
-//     int one_card = 0;
-//     int two_card = 0;
+//     int oneCard = 0;
+//     int twoCard = 0;
 //     for (int i = 0; i < cards.Length; i++)
 //     {
-//         one_card = new Random().Next(0, cards.Length);
-//         two_card = new Random().Next(0, cards.Length);
-//         temp = cards[one_card];
-//         cards[one_card] = cards[two_card];
-//         cards[two_card] = temp;
+//         oneCard = new Random().Next(0, cards.Length);
+//         twoCard = new Random().Next(0, cards.Length);
+//         temp = cards[oneCard];
+//         cards[oneCard] = cards[twoCard];
+//         cards[twoCard] = temp;
 //     }
 //     return cards;
 // }
-// //Игрок просит ещё карту
-// int[] hit_me(int[] cards_of_pl, int[] cards_take)
-// {
-//     string answer = "y";
-//     char[] more = answer.ToCharArray();
-//     int index = 0;
-//     int index_cards_pl = 1;
-//     Console.WriteLine($"У вас на руках {cards_of_pl[0]}");
-//     while (more[0] != 'n')
-//     {
-//         if (cards_take[index] == 0)
-//         {
-//             index++;
-//             continue;
-//         }
-//         else
-//         {
-//             Console.WriteLine("Нужна ещё карта? Если да то введите 'y' если нет то 'n'");
-//             answer = Console.ReadLine();
-//             more = answer.ToCharArray();
-//             if (more[0] != 'n'&& more[0] != 'y') 
-//             {
-//                 Console.WriteLine("Ваш ответ не ясен.");
-//                 continue;
-//             }
-//             if (more[0] == 'y') 
-//             {
-//                 cards_of_pl[index_cards_pl] = cards_take[index]; 
-//                 Console.WriteLine($"Вы вытянули карту со значением {cards_take[index]}");
-//                 cards_take[index] = 0;
-//                 index_cards_pl++;
-//             }
-//             if (more[0] == 'n') break;
-            
-//         }
 
+// //Игрок просит ещё карту
+// int[,] HitMe(int[,] cardsOfPlayer, int[] cardsTake)
+// {
+//     for (int i = 1; i < cardsOfPlayer.GetLength(0); i++)
+//     {
+//         int index = 0;
+//         int indexCardsPlayer = 1;
+//         char more = 'y';
+//         Console.WriteLine($"Очередь игрока под номером {i} \nУ вас на руках {cardsOfPlayer[i,0]} ");
+//         while (more != 'n')
+//         {
+//             if (cardsTake[index] == 0){index++; continue;}
+//             else
+//             {    
+//                 Console.WriteLine("Нужна ещё карта? Если да то введите 'y' если нет то 'n'");
+//                 more =  Convert.ToChar(Console.ReadLine());
+//                 if (more != 'n'&& more != 'y') {Console.WriteLine("Ваш ответ не ясен.");continue;}
+//                 if (more == 'y') 
+//                 {
+//                     cardsOfPlayer[i,indexCardsPlayer] = cardsTake[index]; 
+//                     Console.WriteLine($"Вы вытянули карту со значением {cardsTake[index]}");
+//                     cardsTake[index] = 0;
+//                     indexCardsPlayer++;
+//                 }
+                
+//             }
+
+//         }
+//         PrintCards(cardsOfPlayer,i);
+//         Console.WriteLine();
 //     }
-//     return cards_of_pl;
+//     return cardsOfPlayer;
 // }
 // //Считаем сумму набранных очков
-// int sum_array (int[] array)
+// int SumArray (int[,] array, int player)
 // {
 //     int sum = 0;
-//     for(int i = 0; i < array.Length; i++)
-//     {
-//         sum += array[i];
-//     }
+//         for(int i = 0; i < array.GetLength(1); i++)
+//         {
+//             sum = sum + array[player, i];
+//         }
 //     return sum;
 // }
 // //Находим победителя по набранным очкам
-// int index_max_array (int[] arr)
-// {
-//     int index_max = 0;
+// int IndexMaxArray (int[,] arr)
+// { 
+//     int indexMax = 0;
 //     int max = 0;
-//     for (int i = 0; i < arr.Length; i++)
+//     for (int i = 1; i < arr.GetLength(0); i++)
 //     {
-//        if (max < arr[i])
+//         if ( max == SumArray(arr,i))
 //         {
-//             if( arr[i] <= 21)
+//             indexMax = 0;
+//         }
+//         if (max < SumArray(arr,i))
+//         {   
+//             if( SumArray(arr,i) <= 21)
 //             {
-//             max = arr[i];
-//             index_max = i;
+//                 max = SumArray(arr,i);
+//                 indexMax = i;
 //             } 
 //         }
-
 //     }
-//     return index_max;
+//     return indexMax;
 // }
 // //Сама игра
-// string play (int[] cards_pl1, int[] cards_pl2, int[] cards_stok)
+// string Play (int[,] cardsPlayer, int[] cardsStok)
 // {
-//     int quantity_pl = 2;
-//     int[] sum = new int[quantity_pl+1];
-//     for (int i = 0; i < quantity_pl; i++)
+//     int quantityPlayer = cardsPlayer.GetLength(0);
+//     for (int i = 1; i < cardsPlayer.GetLength(0); i++)
 //     {
-//         cards_pl1[0] = cards_stok[i];
-//         cards_stok[i] = 0;
-//         i++;
-//         cards_pl2[0] = cards_stok[i];
-//         cards_stok[i] = 0;
+//         cardsPlayer[i,0] = cardsStok[i];
+//         cardsStok[i] = 0;
 //     }
-//     Console.WriteLine("Очередь 1го игрока:");
-//     cards_pl1 = hit_me(cards_pl1, cards_stok);
-//     print_cards(cards_pl1);
-    
-//     sum[1] = sum_array(cards_pl1);
-//     Console.WriteLine($"Сумма первого {sum[1]}");
-
-//     Console.WriteLine("Очередь 2го игрока:");
-//     cards_pl1 = hit_me(cards_pl2, cards_stok);
-//     print_cards(cards_pl2);
-   
-//     sum[2] = sum_array(cards_pl2);
-//      Console.WriteLine($"Сумма второго {sum[2]}");
-
-//     if (index_max_array(sum) == 0)
+//     cardsPlayer = HitMe(cardsPlayer, cardsStok);
+//     int index = IndexMaxArray(cardsPlayer);
+//     if (index == 0)
 //     {
 //         return "Никто не победил";
 //     }
 //     else
 //     {
-//         return $"Победил игрок под номером: {index_max_array(sum)}";
+//         return $"Победил игрок под номером: {index}";
 //     }
 // }
 // //Вывод карт
-// void print_cards (int[] pr_cards)
+// void PrintCards (int[,] printCards, int player)
 // {
-//     for (int i = 0; i < pr_cards.Length; i++)
+//     Console.Write("Ваши карты:");
+//     for (int i = 0; i < printCards.GetLength(1); i++)
 //     {
-//         if(pr_cards[i] != 0)
+//         if(printCards[player,i] != 0)
 //         {
-//             Console.Write($"{pr_cards[i]} ");
+//             Console.Write($"{printCards[player,i]} ");
 //         }   
 //     }
 //     Console.WriteLine();
 // }
-// int[] deck_of_cards = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,
+
+// int[] deckOfCards = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,
 //                        5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,
 //                        10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11};
-// int[] deck_pl1 = new int[20];
-// int[] deck_pl2 = new int[20];
-// int[,] deck_pl = new int[2,20];
-// Console.WriteLine(play (deck_pl1, deck_pl2, deck_of_cards));
+// deckOfCards = RandomCards(deckOfCards);
 
-// Решал через двумерные массивы, мега гибко
+// Console.Write("Введите количество игроков: ");
+// int quantity = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine();
 
-//Перемешиваем каллоду
-int[] random_cards(int[] cards)
+// int[,] deckPlayer = new int[quantity+1,20];
+// Console.WriteLine(Play (deckPlayer, deckOfCards));
+
+
+int[] RandomCards(int[] cards)
 {
     int temp = 0;
-    int one_card = 0;
-    int two_card = 0;
+    int oneCard = 0;
+    int twoCard = 0;
     for (int i = 0; i < cards.Length; i++)
     {
-        one_card = new Random().Next(0, cards.Length);
-        two_card = new Random().Next(0, cards.Length);
-        temp = cards[one_card];
-        cards[one_card] = cards[two_card];
-        cards[two_card] = temp;
+        oneCard = new Random().Next(0, cards.Length);
+        twoCard = new Random().Next(0, cards.Length);
+        temp = cards[oneCard];
+        cards[oneCard] = cards[twoCard];
+        cards[twoCard] = temp;
     }
     return cards;
 }
 
-//Игрок просит ещё карту
-int[,] hit_me(int[,] cards_of_pl, int[] cards_take)
+// Меняем 11 на 1
+int Change11To1(int[,] cardsOnHand, int numberPlayer)
 {
-    string answer = "y";
-    char[] more = answer.ToCharArray();
-    int index = 0;
-    int index_cards_pl = 1;
-    for (int i = 1; i < cards_of_pl.GetLength(0); i++)
+    if (SumArray(cardsOnHand, numberPlayer) + 11 <= 21)
     {
-        more[0] = 'y';
-        Console.WriteLine($"Очередь игрока под номером {i}:");
-        Console.WriteLine();
-        Console.WriteLine($"У вас на руках {cards_of_pl[i,0]}");
-        while (more[0] != 'n')
+        return 11;
+    }
+    else{
+        return 1;
+    }
+}
+
+//Игрок просит ещё карту
+int[,] HitMe(int[,] cardsOfPlayer, int[] cardsTake)
+{
+    for (int i = 1; i < cardsOfPlayer.GetLength(0); i++)
+    {
+        int index = 0;
+        int indexCardsPlayer = 1;
+        char more = 'y';
+        Console.WriteLine($"Очередь игрока под номером {i} \nУ вас на руках {cardsOfPlayer[i,0]} ");
+        while (more != 'n')
         {
-            if (cards_take[index] == 0)
-            {
-                index++;
-                continue;
-            }
+            if (cardsTake[index] == 0){index++; continue;}
             else
-            {
+            {    
                 Console.WriteLine("Нужна ещё карта? Если да то введите 'y' если нет то 'n'");
-                answer = Console.ReadLine();
-                more = answer.ToCharArray();
-                if (more[0] != 'n'&& more[0] != 'y') 
+                more =  Convert.ToChar(Console.ReadLine());
+                if (more != 'n'&& more != 'y') {Console.WriteLine("Ваш ответ не ясен.");continue;}
+                if (more == 'y') 
                 {
-                    Console.WriteLine("Ваш ответ не ясен.");
-                    continue;
-                }
-                if (more[0] == 'y') 
-                {
-                    cards_of_pl[i,index_cards_pl] = cards_take[index]; 
-                    Console.WriteLine($"Вы вытянули карту со значением {cards_take[index]}");
-                    cards_take[index] = 0;
-                    index_cards_pl++;
+                    cardsOfPlayer[i,indexCardsPlayer] = cardsTake[index];
+                    Console.WriteLine($"Вы вытянули карту со значением {cardsTake[index]}");
+                    if (cardsTake[index] == 11) {cardsOfPlayer[i,indexCardsPlayer] = Change11To1(cardsOfPlayer, i);}
+                    cardsTake[index] = 0;
+                    indexCardsPlayer++;
                 }
                 
             }
 
         }
-        print_cards(cards_of_pl,i);
-        Console.WriteLine($"Сумма очков составляет {sum_array(cards_of_pl,i)}:");
+        PrintCards(cardsOfPlayer,i);
         Console.WriteLine();
     }
-    return cards_of_pl;
+    return cardsOfPlayer;
 }
 //Считаем сумму набранных очков
-int sum_array (int[,] array, int player)
+int SumArray (int[,] array, int player)
 {
     int sum = 0;
         for(int i = 0; i < array.GetLength(1); i++)
@@ -217,38 +200,42 @@ int sum_array (int[,] array, int player)
     return sum;
 }
 //Находим победителя по набранным очкам
-int index_max_array (int[,] arr)
+int IndexMaxArray (int[,] arr)
 { 
-    int index_max = 0;
+    int indexMax = 0;
     int max = 0;
     for (int i = 1; i < arr.GetLength(0); i++)
     {
-        if ( max == sum_array(arr,i))
+        if ( max == SumArray(arr,i))
         {
-            index_max = 0;
+            indexMax = 0;
         }
-        if (max < sum_array(arr,i))
+        if (max < SumArray(arr,i))
         {   
-            if( sum_array(arr,i) <= 21)
+            if( SumArray(arr,i) <= 21)
             {
-                max = sum_array(arr,i);
-                index_max = i;
+                max = SumArray(arr,i);
+                indexMax = i;
             } 
         }
     }
-    return index_max;
+    return indexMax;
 }
 //Сама игра
-string play (int[,] cards_pl, int[] cards_stok)
+string Play (int[,] cardsPlayer, int[] cardsStok)
 {
-    int quantity_pl = cards_pl.GetLength(0);
-    for (int i = 1; i < cards_pl.GetLength(0); i++)
+    int quantityPlayer = cardsPlayer.GetLength(0);
+    for (int i = 1; i < cardsPlayer.GetLength(0); i++)
     {
-        cards_pl[i,0] = cards_stok[i];
-        cards_stok[i] = 0;
+        cardsPlayer[i,0] = cardsStok[i];
+        cardsStok[i] = 0;
     }
-    cards_pl = hit_me(cards_pl, cards_stok);
-    int index = index_max_array(cards_pl);
+    cardsPlayer = HitMe(cardsPlayer, cardsStok);
+    int index = IndexMaxArray(cardsPlayer);
+    for (int i = 1; i < cardsPlayer.GetLength(0); i++)
+    {
+        Console.WriteLine($"Итоги раунда, игрок {i} = {SumArray(cardsPlayer,i)}");
+    }
     if (index == 0)
     {
         return "Никто не победил";
@@ -259,25 +246,27 @@ string play (int[,] cards_pl, int[] cards_stok)
     }
 }
 //Вывод карт
-void print_cards (int[,] pr_cards, int player)
+void PrintCards (int[,] printCards, int player)
 {
     Console.Write("Ваши карты:");
-    for (int i = 0; i < pr_cards.GetLength(1); i++)
+    for (int i = 0; i < printCards.GetLength(1); i++)
     {
-        if(pr_cards[player,i] != 0)
+        if(printCards[player,i] != 0)
         {
-            Console.Write($"{pr_cards[player,i]} ");
+            Console.Write($"{printCards[player,i]} ");
         }   
     }
     Console.WriteLine();
 }
 
-int[] deck_of_cards = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,
+int[] deckOfCards = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,
                        5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,
                        10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11};
-deck_of_cards = random_cards(deck_of_cards);
+deckOfCards = RandomCards(deckOfCards);
 
 Console.Write("Введите количество игроков: ");
 int quantity = Convert.ToInt32(Console.ReadLine());
-int[,] deck_pl = new int[quantity+1,20];
-Console.WriteLine(play (deck_pl, deck_of_cards));
+Console.WriteLine();
+
+int[,] deckPlayer = new int[quantity+1,20];
+Console.WriteLine(Play (deckPlayer, deckOfCards));
