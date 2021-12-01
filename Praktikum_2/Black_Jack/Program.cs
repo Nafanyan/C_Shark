@@ -20,7 +20,6 @@ int[,] HitMe(int[,] cardsOfPlayer, int[] cardsTake)
                 {
                     cardsOfPlayer[i,indexCardsPlayer] = cardsTake[index];
                     Console.WriteLine($"Вы вытянули карту со значением {cardsTake[index]}");
-                    if (cardsTake[index] == 11) {cardsOfPlayer[i,indexCardsPlayer] = Change11To1(cardsOfPlayer, i);}
                     cardsTake[index] = 0;
                     indexCardsPlayer++;
                 }
@@ -100,8 +99,6 @@ void PrintCards (int[,] printCards, int player)
 int[] deckOfCards = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,
                        5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,
                        10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11};
-deckOfCards = RandomCards(deckOfCards);
-
 Console.Write("Введите количество игроков: ");
 int quantity = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
