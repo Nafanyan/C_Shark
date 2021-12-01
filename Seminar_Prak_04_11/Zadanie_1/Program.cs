@@ -1382,6 +1382,56 @@
 
 //57. Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
 
+int[,] Rand (int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i,j] = new Random().Next(0,101);
+        }
+    }
+    return array;
+}
+
+int[,] Sorting (int[,] sortingArray)
+{
+    for (int i = 0; i < sortingArray.GetLength(0); i++)
+    {
+        for (int j = 1; j < sortingArray.GetLength(1); j++)
+        {
+            for (int k = 0; k < sortingArray.GetLength(1) - j; k++)
+            {
+                if (sortingArray[i,k] < sortingArray[i,k+1])
+                {
+                    int temp = sortingArray[i,k];
+                    sortingArray[i,k] = sortingArray[i,k+1];
+                    sortingArray[i,k+1] = temp;
+                }
+            }
+        }
+    }
+    return sortingArray;
+}
+
+void Print(int[,] printArray)
+{
+    for (int i = 0; i < printArray.GetLength(0); i++)
+    {
+        for (int j = 0; j < printArray.GetLength(1); j++)
+        {
+            Console.Write($"{printArray[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+    
+}
+
+int[,] array = new int[6, 10];
+array = Rand(array);
+Print(array);
+Console.WriteLine();
+Print(Sorting(array));
 
 //58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить
 //59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
