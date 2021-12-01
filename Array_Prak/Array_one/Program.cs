@@ -9,25 +9,25 @@
 
 
 // метод для заполнения массива случайными величинами
-int[] Rand_Arr(int [] array, int min, int max)
-{
-    int length = array.Length;
-    for(int i=0; i < length; i++)
-    {
-        array[i] = new Random().Next(min, max); // [10, 99]
-    }
-    return array;
-}
+// int[] Rand_Arr(int [] array, int min, int max)
+// {
+//     int length = array.Length;
+//     for(int i=0; i < length; i++)
+//     {
+//         array[i] = new Random().Next(min, max); // [10, 99]
+//     }
+//     return array;
+// }
 
-// метод для печати массива
-void Print_Arr(int [] array_print)
-{
-    int length_print = array_print.Length;
-    for(int i = 0; i < length_print; i++)
-    {
-        Console.Write($"{array_print[i]} ");
-    }
-}
+// // метод для печати массива
+// void Print_Arr(int [] array_print)
+// {
+//     int length_print = array_print.Length;
+//     for(int i = 0; i < length_print; i++)
+//     {
+//         Console.Write($"{array_print[i]} ");
+//     }
+// }
 
 //нарушают порядок возрастания
 /*
