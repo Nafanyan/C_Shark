@@ -1488,69 +1488,279 @@
 
 
 //59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
-int[,] Rand (int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i,j] = new Random().Next(0,101);
-        }
-    }
-    return array;
-}
-void Print(int[,] printArray)
-{
-    for (int i = 0; i < printArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < printArray.GetLength(1); j++)
-        {
-            Console.Write($"{printArray[i,j]} ");
-        }
-        Console.WriteLine();
-    }
-}
-int MinRow (int[,] sourceArray)
-{
-    int[] sumRows = new int[sourceArray.GetLength(0)];
-     for(int i = 0; i < sourceArray.GetLength(0); i++)
-    {
-        for (int j = i; j < sourceArray.GetLength(1); j++)
-        {
-            sumRows[i] += sourceArray[i,j];
-        }
-    }
-    int min = sumRows[0];
-    int minIndex = 0;
-    for (int i = 0; i < sourceArray.GetLength(0); i++)
-    {
-        if (min > sumRows[i])
-        {
-            min = sumRows[i];
-            minIndex = i;
-        }
-    }
-    return minIndex;
-}
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,101);
+//         }
+//     }
+//     return array;
+// }
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//             Console.Write($"{printArray[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// int MinRow (int[,] sourceArray)
+// {
+//     int[] sumRows = new int[sourceArray.GetLength(0)];
+//      for(int i = 0; i < sourceArray.GetLength(0); i++)
+//     {
+//         for (int j = i; j < sourceArray.GetLength(1); j++)
+//         {
+//             sumRows[i] += sourceArray[i,j];
+//         }
+//     }
+//     int min = sumRows[0];
+//     int minIndex = 0;
+//     for (int i = 0; i < sourceArray.GetLength(0); i++)
+//     {
+//         if (min > sumRows[i])
+//         {
+//             min = sumRows[i];
+//             minIndex = i;
+//         }
+//     }
+//     return minIndex;
+// }
 
 
-int[,] array = new int[2, 3];
-array = Rand(array);
-Print(array);
-Console.WriteLine();
-Console.WriteLine(MinRow(array));
+// int[,] array = new int[2, 3];
+// array = Rand(array);
+// Print(array);
+// Console.WriteLine();
+// Console.WriteLine(MinRow(array));
+
 
 //60. Составить частотный словарь элементов двумерного массива
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,101);
+//         }
+//     }
+//     return array;
+// }
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//             if ( printArray[i,j] != 0)
+//             {
+//                 Console.Write($"{printArray[i,j]} ");
+//             }    
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] FrequencyArray (int[,] sourceArray)
+// {
+//     int[,] dictinoryArray = new int[2,sourceArray.GetLength(1)*sourceArray.GetLength(0)];
+//     for(int i = 0; i < sourceArray.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < sourceArray.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < sourceArray.GetLength(1)*sourceArray.GetLength(0); k++)
+//             {
+//                 if (dictinoryArray[0,k]==0)
+//                 {
+//                     dictinoryArray[0,k]=sourceArray[i,j];
+//                     dictinoryArray[1,k] += 1;
+//                     break;
+//                 }
+//                 if (dictinoryArray[0,k]==sourceArray[i,j])
+//                 {
+//                     dictinoryArray[1,k] += 1;
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+//     return dictinoryArray;
+// }
+
+// int[,] array = new int[2, 4];
+// array = Rand(array);
+// Print(array);
+// Console.WriteLine();
+// Print(FrequencyArray(array));
+
+
 //61. Найти произведение двух матриц
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,11);
+//         }
+//     }
+//     return array;
+// }
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//                 Console.Write($"{printArray[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// int[,] MultiMatrix (int[,] multipliperOne, int[,] multipliperTwo)
+// {
+//     int[,] resultArray = new int[multipliperOne.GetLength(0), multipliperTwo.GetLength(1)];
+//     for(int i = 0; i < multipliperOne.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < multipliperTwo.GetLength(1); j++)
+//         {
+//             for ( int k = 0; k < multipliperOne.GetLength(1); k++)
+//             {
+//                 resultArray[i,j] += multipliperOne[i,k] * multipliperTwo[k,j];
+//             }
+//         }
+//     }
+//     return  resultArray;
+// }
+// int[,] arrayOne = new int[2, 4];
+// int[,] arrayTwo = new int[4, 2];
+// arrayOne = Rand(arrayOne);
+// arrayTwo = Rand(arrayTwo);
+// Print(arrayOne);
+// Console.WriteLine();
+// Print(arrayTwo);
+// Console.WriteLine();
+// Print(MultiMatrix(arrayOne, arrayTwo));
+
 //62. В двумерном массиве целых чисел. 
 //Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,110);
+//         }
+//     }
+//     return array;
+// }
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//                 Console.Write($"{printArray[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// int[] SearchMin (int[,] sourceArray)
+// {
+//     int min = sourceArray[0,0];
+//     int[] indexMin = new int[2];
+//     for (int i = 0; i < sourceArray.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < sourceArray.GetLength(1); j++)
+//         {
+//             if (min > sourceArray[i,j])
+//             {
+//                 min = sourceArray[i,j];
+//                 indexMin[0] = i;
+//                 indexMin[1] = j;
+//             }
+//         }
+//     }
+//     return indexMin;
+// }
+// int[,] RemovePartArray(int[,] currentArray, int[] indexRemove)
+// {
+//     for ( int i = 0; i < currentArray.GetLength(0); i++)
+//     {
+//         currentArray[i,indexRemove[1]] = 0;
+//         for(int j = 0; j < currentArray.GetLength(1); j++)
+//         {
+//             if (i == indexRemove[0])
+//             {
+//                 currentArray[i,j] = 0; 
+//             }
+            
+//         }
+//     }
+//     return currentArray;
+// }
+// int[,] array = new int[6, 4];
+// array = Rand(array);
+// Print(array);
+// Console.WriteLine();
+// array = RemovePartArray(array, SearchMin(array));
+// Print(array);
+
+
 //63. Сформировать трехмерный массив не повторяющимися двузначными числами 
 //показать его построчно на экран выводя индексы соответствующего элемента
+
+
 //64. Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника
+
+
 //65. Спирально заполнить двумерный массив:
+
+
 //66. Показать натуральные числа от 1 до N, N задано
+// string NaturalNumbers(int n)
+// {
+//     if (n == 1)
+//     {
+//         return "1";
+//     }
+//     return NaturalNumbers(n-1) + " " + n;
+// }
+// Console.WriteLine(NaturalNumbers(10));
+
+
 //67. Показать натуральные числа от N до 1, N задано
+// string NaturalNumbers(int n)
+// {
+//     if(n == 1)
+//     {
+//         return "1";
+//     }
+//     return n + " " + NaturalNumbers(n-1);
+// }
+// Console.WriteLine(NaturalNumbers(10));
+
+
 //68. Показать натуральные числа от M до N, N и M заданы
+string NaturalNM(int m, int n)
+{
+    if(m == n) {return $"{n}";}
+    else
+    {
+        if ( m < n) {return m + " " + NaturalNM(m+1, n);}
+        else {return m + " " + NaturalNM(m-1, n);}
+    }
+}
+Console.WriteLine(NaturalNM(25, 15));
+
 //69. Найти сумму элементов от M до N, N и M заданы
 //70. Найти сумму цифр числа
 //71. Написать программу вычисления функции Аккермана
