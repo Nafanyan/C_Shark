@@ -1382,6 +1382,112 @@
 
 //57. Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
 
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,101);
+//         }
+//     }
+//     return array;
+// }
+
+// int[,] Sorting (int[,] sortingArray)
+// {
+//     for (int i = 0; i < sortingArray.GetLength(0); i++)
+//     {
+//         for (int j = 1; j < sortingArray.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < sortingArray.GetLength(1) - j; k++)
+//             {
+//                 if (sortingArray[i,k] < sortingArray[i,k+1])
+//                 {
+//                     int temp = sortingArray[i,k];
+//                     sortingArray[i,k] = sortingArray[i,k+1];
+//                     sortingArray[i,k+1] = temp;
+//                 }
+//             }
+//         }
+//     }
+//     return sortingArray;
+// }
+
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//             Console.Write($"{printArray[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+    
+// }
+
+// int[,] array = new int[6, 10];
+// array = Rand(array);
+// Print(array);
+// Console.WriteLine();
+// Print(Sorting(array));
+
+
+//58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить
+// int[,] Rand (int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0,101);
+//         }
+//     }
+//     return array;
+// }
+// void Print(int[,] printArray)
+// {
+//     for (int i = 0; i < printArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < printArray.GetLength(1); j++)
+//         {
+//             Console.Write($"{printArray[i,j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+    
+// }
+
+// int[,] SwapRowColoumn (int[,] sourceArray)
+// {
+//     for(int i = 0; i < sourceArray.GetLength(0); i++)
+//     {
+//         for (int j = i+1; j < sourceArray.GetLength(1); j++)
+//         {
+//             int temp = sourceArray[i,j];
+//             sourceArray[i,j] = sourceArray[j,i];
+//             sourceArray[j,i] = temp;
+//         }
+//     }
+//     return sourceArray;
+// }
+
+// int[,] array = new int[10, 10];
+// array = Rand(array);
+// Print(array);
+// Console.WriteLine();
+// if (array.GetLength(0) == array.GetLength(1))
+// {
+//     Print(SwapRowColoumn(array));
+// }
+// else 
+// {
+//     Console.WriteLine("Двумерный массив не имеет квадратную форму");
+// }
+
+
+//59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
 int[,] Rand (int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -1393,27 +1499,6 @@ int[,] Rand (int[,] array)
     }
     return array;
 }
-
-int[,] Sorting (int[,] sortingArray)
-{
-    for (int i = 0; i < sortingArray.GetLength(0); i++)
-    {
-        for (int j = 1; j < sortingArray.GetLength(1); j++)
-        {
-            for (int k = 0; k < sortingArray.GetLength(1) - j; k++)
-            {
-                if (sortingArray[i,k] < sortingArray[i,k+1])
-                {
-                    int temp = sortingArray[i,k];
-                    sortingArray[i,k] = sortingArray[i,k+1];
-                    sortingArray[i,k+1] = temp;
-                }
-            }
-        }
-    }
-    return sortingArray;
-}
-
 void Print(int[,] printArray)
 {
     for (int i = 0; i < printArray.GetLength(0); i++)
@@ -1424,17 +1509,37 @@ void Print(int[,] printArray)
         }
         Console.WriteLine();
     }
-    
+}
+int MinRow (int[,] sourceArray)
+{
+    int[] sumRows = new int[sourceArray.GetLength(0)];
+     for(int i = 0; i < sourceArray.GetLength(0); i++)
+    {
+        for (int j = i; j < sourceArray.GetLength(1); j++)
+        {
+            sumRows[i] += sourceArray[i,j];
+        }
+    }
+    int min = sumRows[0];
+    int minIndex = 0;
+    for (int i = 0; i < sourceArray.GetLength(0); i++)
+    {
+        if (min > sumRows[i])
+        {
+            min = sumRows[i];
+            minIndex = i;
+        }
+    }
+    return minIndex;
 }
 
-int[,] array = new int[6, 10];
+
+int[,] array = new int[2, 3];
 array = Rand(array);
 Print(array);
 Console.WriteLine();
-Print(Sorting(array));
+Console.WriteLine(MinRow(array));
 
-//58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить
-//59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
 //60. Составить частотный словарь элементов двумерного массива
 //61. Найти произведение двух матриц
 //62. В двумерном массиве целых чисел. 
