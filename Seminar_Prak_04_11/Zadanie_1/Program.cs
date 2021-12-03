@@ -1726,11 +1726,11 @@
 
 
 //66. Показать натуральные числа от 1 до N, N задано
-string NaturalNumbers(int n)
-{
-    return n==1 ? "1" : NaturalNumbers(n-1) + " " + n;
-}
-Console.WriteLine(NaturalNumbers(10));
+// string NaturalNumbers(int n)
+// {
+//     return n==1 ? "1" : NaturalNumbers(n-1) + " " + n;
+// }
+// Console.WriteLine(NaturalNumbers(10));
 
 
 //67. Показать натуральные числа от N до 1, N задано
@@ -1750,6 +1750,13 @@ Console.WriteLine(NaturalNumbers(10));
 // Console.WriteLine(NaturalNM(15, 25));
 
 //69. Найти сумму элементов от M до N, N и M заданы
+int SumMN (int m, int n)
+{
+    if (m == n) {return n;}
+    return m < n ? m + SumMN(m+1,n) : m + SumMN(m-1,n);
+}
+Console.WriteLine(SumMN(6,1));
+
 //70. Найти сумму цифр числа
 //71. Написать программу вычисления функции Аккермана
 //72. Написать программу возведения числа А в целую стень B
@@ -1758,3 +1765,4 @@ Console.WriteLine(NaturalNumbers(10));
 //74. В некотором машинном алфавите имеются четыре буквы «а», «и», «с» и «в». 
 //Покажите все слова, состоящие из n букв, которые можно построить из букв этого алфавита
 //75.
+
