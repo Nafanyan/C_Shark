@@ -1726,40 +1726,28 @@
 
 
 //66. Показать натуральные числа от 1 до N, N задано
-// string NaturalNumbers(int n)
-// {
-//     if (n == 1)
-//     {
-//         return "1";
-//     }
-//     return NaturalNumbers(n-1) + " " + n;
-// }
-// Console.WriteLine(NaturalNumbers(10));
+string NaturalNumbers(int n)
+{
+    return n==1 ? "1" : NaturalNumbers(n-1) + " " + n;
+}
+Console.WriteLine(NaturalNumbers(10));
 
 
 //67. Показать натуральные числа от N до 1, N задано
 // string NaturalNumbers(int n)
 // {
-//     if(n == 1)
-//     {
-//         return "1";
-//     }
-//     return n + " " + NaturalNumbers(n-1);
+//     return n == 1 ? "1" : n + " " + NaturalNumbers(n-1);
 // }
 // Console.WriteLine(NaturalNumbers(10));
 
 
 //68. Показать натуральные числа от M до N, N и M заданы
-string NaturalNM(int m, int n)
-{
-    if(m == n) {return $"{n}";}
-    else
-    {
-        if ( m < n) {return m + " " + NaturalNM(m+1, n);}
-        else {return m + " " + NaturalNM(m-1, n);}
-    }
-}
-Console.WriteLine(NaturalNM(25, 15));
+// string NaturalNM(int m, int n)
+// {
+//     if(m == n) {return $"{n}";}
+//     return (m > n) ? m + " " + NaturalNM(m-1,n) : m + " " + NaturalNM(m+1,n);
+// }
+// Console.WriteLine(NaturalNM(15, 25));
 
 //69. Найти сумму элементов от M до N, N и M заданы
 //70. Найти сумму цифр числа
