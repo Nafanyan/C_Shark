@@ -1750,19 +1750,118 @@
 // Console.WriteLine(NaturalNM(15, 25));
 
 //69. Найти сумму элементов от M до N, N и M заданы
-int SumMN (int m, int n)
-{
-    if (m == n) {return n;}
-    return m < n ? m + SumMN(m+1,n) : m + SumMN(m-1,n);
-}
-Console.WriteLine(SumMN(6,1));
+// int SumMN (int m, int n)
+// {
+//     if (m == n) {return n;}
+//     return m < n ? m + SumMN(m+1,n) : m + SumMN(m-1,n);
+// }
+// Console.WriteLine(SumMN(6,1));
 
 //70. Найти сумму цифр числа
+// int SumNumber (int number)
+// {
+//     if (number <= 0){return 0;}
+//     return number%10 + SumNumber(number/10);
+
+// }
+// Console.WriteLine(SumNumber(750)); 
+
+
 //71. Написать программу вычисления функции Аккермана
+
+// int Akkerman(int m, int n)
+// {
+//     if (m==0)
+//     {
+//         return n + 1;
+//     }
+//     else
+//         return (n==0 && m > 0) ? Akkerman(m-1,1): Akkerman(m-1, Akkerman(m, n-1));
+// }
+
+// Console.WriteLine(Akkerman(4,0));
+
 //72. Написать программу возведения числа А в целую стень B
+// int Stepen (int a, int b)
+// {
+//     if (b == 1){return a;}
+//     return a * Stepen(a, b - 1); 
+// }
+// Console.WriteLine(Stepen(2,5));
+
 //73. Написать программу показывающие первые N чисел, для которых каждое следующее равно сумме двух предыдущих. 
 //Первые два элемента последовательности задаются пользователем
+
+// int Fibo (int oneNumber, int twoNumber, int N)
+// {
+//     if (N == 0){ return oneNumber;}
+//     if (N == 1){return twoNumber;}
+//     else {return Fibo(oneNumber, twoNumber, N-1) + Fibo(oneNumber, twoNumber, N-2) ;}
+// }
+
+// for (int i = 0; i < 10; i++)
+// {
+//    Console.Write($"{Fibo (1, 1, i)} ");
+// }
+
 //74. В некотором машинном алфавите имеются четыре буквы «а», «и», «с» и «в». 
 //Покажите все слова, состоящие из n букв, которые можно построить из букв этого алфавита
+
+char[] s = {'а','и','с','в'};
+int count = s.Length;
+int n = 1;
+for (int i = 0; i < count; i ++)
+{
+    for (int j = 0; j < count; j++)
+    {
+        for (int k = 0; k < count; k++)
+        {
+            for (int l = 0; l < count; l++)
+            {
+                for (int m = 0; m < count; m++)
+                {
+                    Console.WriteLine($"{n++, -5}{s[i]}{s[k]}{s[l]}{s[m]}");
+                }
+            }
+        }
+    }
+}
+
+string Words (char[] symbols, int i, int j, int k, int l, int m)
+{
+    int count = s.Length;
+    if (i == count && j == count && k == count && l == count && m == count)
+    {
+        return " ";
+    }
+    else 
+    {
+        return $"{n++, -5}{s[i]}{s[k]}{s[l]}{s[m]}" + $"{n++, -5}{s[i]}{s[k]}{s[l]}{s[m]}"
+    }
+}
 //75.
 
+
+
+
+// int GeneralSubsequence (int[] oneArray, int[] twoArray, int i, int j)
+// {
+//     if (i == oneArray.Length || j == twoArray.Length)
+//     {
+//         return 0;
+//     }
+//     else {
+//         if (oneArray[i] == twoArray[j]) 
+//         {
+//             return 1 + GeneralSubsequence(oneArray, twoArray, i + 1, j + 1);
+//             }
+//         else {
+//             return Math.Max(GeneralSubsequence(oneArray, twoArray, i + 1, j), GeneralSubsequence(oneArray, twoArray, i, j + 1));
+//             }
+//     }
+// }
+
+// int[] one = {9,2,1,1,1,9,5,4,3};
+// int[] two = {1,2,3,9,5}; 
+
+// Console.WriteLine(GeneralSubsequence(one,two, 0,0));
